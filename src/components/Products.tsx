@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 
 const Product = () => {
 
-  const [products, setProducts] = useState<[]>(null)
+  const [products, setProducts] = useState<[]>([])
 
   useEffect(() => {
     axios.get('http://localhost:8080/products')
@@ -33,22 +33,23 @@ const Product = () => {
             <TableHead>
               <TableRow>
                 <TableCell>Id</TableCell>
-                <TableCell align="right">Name</TableCell>
-                <TableCell align="right">Description</TableCell>
-                <TableCell align="right">Brand</TableCell>
-                <TableCell align="right">Price</TableCell>
-                <TableCell align="right">Acquisition Date</TableCell>
+                <TableCell align="left">Name</TableCell>
+                <TableCell align="left">Description</TableCell>
+                <TableCell align="left">Brand</TableCell>
+                <TableCell align="left">Price</TableCell>
+                <TableCell align="left">Acquisition Date</TableCell>
+                <TableCell align="left">Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               { products !== null ? products.map((product) => (
                 <TableRow>
-                  <TableCell align="right">{product["id"]}</TableCell>
-                  <TableCell align="right">{product["name"]}</TableCell>
-                  <TableCell align="right">{product["brand"]}</TableCell>
-                  <TableCell align="right">{product["description"]}</TableCell>
-                  <TableCell align="right">{product["price"]}</TableCell>
-                  <TableCell align="right">{product["acquisitionDate"]}</TableCell>
+                  <TableCell align="left">{product["id"]}</TableCell>
+                  <TableCell align="left">{product["name"]}</TableCell>
+                  <TableCell align="left">{product["brand"]}</TableCell>
+                  <TableCell align="left">{product["description"]}</TableCell>
+                  <TableCell align="left">{product["price"]}</TableCell>
+                  <TableCell align="left">{product["acquisitionDate"]}</TableCell>
                 </TableRow>
                 )
               ) : (<div>Loading...</div>)}

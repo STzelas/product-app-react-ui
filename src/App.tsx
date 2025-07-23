@@ -1,10 +1,13 @@
 import './App.css'
+import Appbar from "./components/Appbar.tsx";
+import Products from "./components/Products.tsx";
 
 function App() {
 
   return (
     <>
-      <h1>Welcome to react/spring</h1>
+      <Appbar/>
+      <Products />
     </>
   )
 }

@@ -1,13 +1,29 @@
-import './App.css'
-import Appbar from "./components/Appbar.tsx";
-import Products from "./components/Products.tsx";
+import { BrowserRouter, Route, Routes } from "react-router"
+import ProductsApp from "@/components/ProductsApp.tsx";
+import HomePage from "@/pages/HomePage.tsx";
+import LoginPage from "@/pages/LoginPage.tsx";
+import NotFoundPage from "@/pages/NotFoundPage.tsx";
+import RegisterPage from "@/pages/RegisterPage.tsx";
+import ProductsPage from "@/pages/ProductsPage.tsx";
 
 function App() {
 
   return (
     <>
-      <Appbar/>
-      <Products />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<ProductsApp/>}>
+            <Route index element={<HomePage/>} />
+
+            <Route path="login" element={<LoginPage/>}/>
+            <Route path="register" element={<RegisterPage/>}/>
+            <Route path="products" element={<ProductsPage/>}/>
+
+
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

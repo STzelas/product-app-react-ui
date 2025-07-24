@@ -1,12 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Paper, TableContainer} from "@mui/material";
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Box from "@mui/material/Box";
+import {Table, TableBody, TableCell, TableHeader, TableRow} from "@/components/ui/table";
 
 const Product = () => {
 
@@ -22,27 +16,21 @@ const Product = () => {
 
   return (
     <>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        height="50vh"
-      >
-        <TableContainer component={Paper} style={{width:'70%'}}>
-          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Id</TableCell>
-                <TableCell align="left">Name</TableCell>
-                <TableCell align="left">Description</TableCell>
-                <TableCell align="left">Brand</TableCell>
-                <TableCell align="left">Price</TableCell>
-                <TableCell align="left">Acquisition Date</TableCell>
-                <TableCell align="left">Actions</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              { products !== null ? products.map((product) => (
+      <div className="shadow-sm rounded-2xl bg-white p-5 mt-20">
+        <Table aria-label="a dense table">
+          <TableHeader className="w-[100px]">
+            <TableRow>
+              <TableCell>Id</TableCell>
+              <TableCell align="left">Name</TableCell>
+              <TableCell align="left">Description</TableCell>
+              <TableCell align="left">Brand</TableCell>
+              <TableCell align="left">Price</TableCell>
+              <TableCell align="left">Acquisition Date</TableCell>
+              <TableCell align="left">Actions</TableCell>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            { products !== null ? products.map((product) => (
                 <TableRow>
                   <TableCell align="left">{product["id"]}</TableCell>
                   <TableCell align="left">{product["name"]}</TableCell>
@@ -51,14 +39,31 @@ const Product = () => {
                   <TableCell align="left">{product["price"]}</TableCell>
                   <TableCell align="left">{product["acquisitionDate"]}</TableCell>
                 </TableRow>
-                )
-              ) : (<div>Loading...</div>)}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
+              )
+            ) : (<div>Loading...</div>)}
+          </TableBody>
+        </Table>
+      </div>
     </>
   )
 }
 
 export default  Product
+
+
+// <TableHeader>
+//   <TableRow>
+//     <TableHead className="w-[100px]">Invoice</TableHead>
+//     <TableHead>Status</TableHead>
+//     <TableHead>Method</TableHead>
+//     <TableHead className="text-right">Amount</TableHead>
+//   </TableRow>
+// </TableHeader>
+// <TableBody>
+//   <TableRow>
+//     <TableCell className="font-medium">INV001</TableCell>
+//     <TableCell>Paid</TableCell>
+//     <TableCell>Credit Card</TableCell>
+//     <TableCell className="text-right">$250.00</TableCell>
+//   </TableRow>
+// </TableBody>

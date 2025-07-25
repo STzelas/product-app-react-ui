@@ -5,25 +5,30 @@ import LoginPage from "@/pages/LoginPage.tsx";
 import NotFoundPage from "@/pages/NotFoundPage.tsx";
 import RegisterPage from "@/pages/RegisterPage.tsx";
 import ProductsPage from "@/pages/ProductsPage.tsx";
+import RegistrationSuccess from "@/pages/RegistrationSuccess.tsx";
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<ProductsApp/>}>
-            <Route index element={<HomePage/>} />
+        <BrowserRouter>
+          <Routes>
+            <Route element={<ProductsApp/>}>
+              <Route index element={<HomePage/>} />
 
-            <Route path="login" element={<LoginPage/>}/>
-            <Route path="register" element={<RegisterPage/>}/>
-            <Route path="products" element={<ProductsPage/>}/>
+              <Route path="login" element={<LoginPage/>}/>
+              <Route path="register" element={<RegisterPage/>}/>
+              <Route path="register-success" element={<RegistrationSuccess/>}/>
 
 
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+              <Route path="products" element={<ProductsPage/>}/>
+
+
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+
     </>
   )
 }

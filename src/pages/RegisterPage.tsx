@@ -16,21 +16,19 @@ const RegisterPage = () => {
     setError,
     formState: { errors, isSubmitting }
   } = useForm<FormFields>({
-    defaultValues: {
-      email: "test@gmail.com"
-    },
     resolver: zodResolver(registerSchema)
   })
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      throw new Error();
       console.log(data);
+      throw new Error();
     } catch (error) {
       setError("root", {
         message: "Problem creating account",
       });
+      console.error(error);
     }
   }
 

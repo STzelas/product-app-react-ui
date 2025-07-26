@@ -6,8 +6,13 @@ import NotFoundPage from "@/pages/NotFoundPage.tsx";
 import RegisterPage from "@/pages/RegisterPage.tsx";
 import ProductsPage from "@/pages/ProductsPage.tsx";
 import RegistrationSuccess from "@/pages/RegistrationSuccess.tsx";
+import {useEffect} from "react";
 
 function App() {
+
+  useEffect(() => {
+    document.title = "Products App";
+  }, [])
 
   return (
     <>

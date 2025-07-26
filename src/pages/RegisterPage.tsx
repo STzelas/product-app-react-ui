@@ -3,20 +3,10 @@ import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import { useNavigate } from "react-router";
 import {type SubmitHandler, useForm} from 'react-hook-form';
-import { z } from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {type FormFields, registerSchema} from "@/types/ProductType.tsx";
 
-const schema = z.object({
-  username: z.string().min(3, {error: "Username must be at least 3 characters"}),
-  email: z.email({error: "Email must be a valid email"}),
-  password: z.string().min(8, {error: "Password must be at least 8 characters"}),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  error: "Passwords do not match",
-  path: ["confirmPassword"]
-});
 
-type FormFields = z.infer<typeof schema>
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -29,7 +19,7 @@ const RegisterPage = () => {
     defaultValues: {
       email: "test@gmail.com"
     },
-    resolver: zodResolver(schema)
+    resolver: zodResolver(registerSchema)
   })
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {

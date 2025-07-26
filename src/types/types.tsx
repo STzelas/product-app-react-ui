@@ -1,6 +1,6 @@
 import {z} from "zod";
 
-export type ProductType = {
+export type Types = {
   id: number,
   name: string,
   description: string,

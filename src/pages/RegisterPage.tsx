@@ -4,7 +4,7 @@ import {Button} from "@/components/ui/button.tsx";
 import { useNavigate } from "react-router";
 import {type SubmitHandler, useForm} from 'react-hook-form';
 import {zodResolver} from "@hookform/resolvers/zod";
-import {type FormFields, registerSchema} from "@/types/ProductType.tsx";
+import {type FormFields, registerSchema} from "@/types/types.tsx";
 
 
 

@@ -2,7 +2,7 @@ import {type ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import {Table, TableBody, TableCell, TableHeader, TableRow} from "@/components/ui/table";
 import {Pencil, Trash} from "lucide-react";
-import type {ProductType} from "@/types/ProductType.tsx";
+import type {Types} from "@/types/types.tsx";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,12 +27,12 @@ import {Input} from "@/components/ui/input.tsx";
 
 const Product = () => {
 
-  const [products, setProducts] = useState<ProductType[]>([])
+  const [products, setProducts] = useState<Types[]>([])
   const [deleteId, setDeleteId] = useState<number | null>(null)
   const [open, setOpen] = useState(false)
   const [confirmOpen, setConfirmOpen] = useState(false)
   const [openEdit, setOpenEdit] = useState(false)
-  const [newProduct, setNewProduct] = useState<Omit<ProductType, "id">>({
+  const [newProduct, setNewProduct] = useState<Omit<Types, "id">>({
     name: '',
     description: '',
     brand: '',
@@ -40,7 +40,7 @@ const Product = () => {
     price: 0,
   })
 
-  const [editProduct, setEditProduct] = useState<ProductType>({
+  const [editProduct, setEditProduct] = useState<Types>({
     id: 0,
     name: '',
     description: '',
@@ -90,7 +90,7 @@ const Product = () => {
     }
   }
 
-  const handleClickOpenEdit = (product: ProductType, ) => {
+  const handleClickOpenEdit = (product: Types, ) => {
     setEditProduct({...product})
     setOpenEdit(true)
   }

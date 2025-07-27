@@ -1,15 +1,16 @@
 import {z} from "zod";
 
 // Product Type
-export type productType = {
-  id: number,
-  name: string,
-  description: string,
-  brand: string,
-  price: number,
-  acquisitionDate: string,
+export const productSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  brand: z.string(),
+  descriptions: z.string(),
+  price: z.string(),
+  acquisitionDate: z.string(),
+})
 
-}
+export type Product = z.infer<typeof productSchema>
 
 // Register Schema
 export const registerSchema = z.object({
